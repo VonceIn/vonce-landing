@@ -3,6 +3,7 @@
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import { Content } from "./Content";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -64,19 +65,19 @@ export const MainPage = () => {
     return (
         <div
             id="main-pin"
-            className="bg-primary w-full h-[100dvh] flex items-center justify-center z-10"
+            className="bg-primary w-full h-[100vh] flex items-center justify-center z-10"
         >
-            <div id="logo1" className="fixed left-0 top-0 bg-secondary w-full h-full z-20 overflow-hidden flex items-center justify-center gap-20">
+            <div id="logo1" className="fixed left-0 top-0 bg-secondary w-full h-[100vh] z-20 overflow-hidden flex items-center justify-center gap-20 max-lg:gap-10 max-sm:flex-col">
                 <span 
-                    className="text-8xl text-primary font-[800] font-telegraf leading-30 absolute text-center"
+                    className="text-8xl text-primary font-[800] font-telegraf leading-30 absolute text-center max-lg:text-7xl max-sm:text-5xl max-sm:leading-16 max-lg:leading-20"
                     id="vonce-text"
                 >
                     How would you like to connect with someone new everyday?
                 </span>
-                <img id="vonce-logo" src='/images/vonce_logo_no_bg.png' className="object-contain w-80 h-80 opacity-0 translate-y-[50px]" />
-                <span id="vonce-logo" className="text-primary font-telegraf font-[800] text-[200px] opacity-0 translate-y-[50px]">Vonce</span>
+                <img id="vonce-logo" src='/images/vonce_logo_no_bg.png' className="object-contain w-80 h-80 opacity-0 translate-y-[50px] max-lg:w-40 max-sm:w-35" />
+                <span id="vonce-logo" className="text-primary font-telegraf font-[800] text-[200px] opacity-0 translate-y-[50px] max-lg:text-9xl max-sm:text-8xl">Vonce</span>
             </div>
-            <h1 className="text-black font-telegraf font-[800] text-4xl">Vonce</h1>
+            <Content />
         </div>
     );
 }
