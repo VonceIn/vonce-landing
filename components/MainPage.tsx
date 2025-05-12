@@ -22,7 +22,7 @@ export const MainPage = () => {
         // Animate logo scaling + movement
         const tl = gsap.timeline({
             scrollTrigger: {
-                trigger: "#logo1, #logo2",        // Start animation as soon as logo scrolls
+                trigger: "#logo1",        // Start animation as soon as logo scrolls
                 start: "top top",        // When logo hits top of viewport
                 end: "bottom top",       // Until logo scrolls out
                 scrub: true,             // Sync with scroll
@@ -30,7 +30,7 @@ export const MainPage = () => {
             },
         });
 
-        tl.to("#logo1, #logo2", {
+        tl.to("#logo1", {
             // scale: 0.3,            // Shrink down to 30% size
             x: '20px',            // Move left
             y: '-5px',
@@ -39,16 +39,11 @@ export const MainPage = () => {
             ease: "power1.out",
         });
 
-        tl.to("#logo1, #logo2", {
+        tl.to("#logo1", {
             borderBottomLeftRadius: "9999px",
             borderBottomRightRadius: "9999px",
             ease: "power2.inOut"
         }, "<");
-
-        // Fade in second logo at the very end of scroll
-        tl.set("#logo2", {
-            opacity: 1,
-        });
     }, []);
 
     return (
@@ -58,13 +53,8 @@ export const MainPage = () => {
         >
             <img
                 id="logo1"
-                src="/vonce_logo.png"
-                className="fixed left-0 top-0 w-full h-[100vh] object-cover z-20"
-            />
-            <img
-                id="logo2"
                 src="/vonce_logo_3.png"
-                className="fixed left-0 top-0 w-full h-[100vh] object-cover z-20 opacity-0"
+                className="fixed left-0 top-0 w-full h-[100vh] object-cover z-20"
             />
             <h1 className="text-white text-4xl">Main Page</h1>
         </div>
