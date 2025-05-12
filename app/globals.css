@@ -1,26 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import "tailwindcss";
+@config "../tailwind.config.ts";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+    --font-merriweather: "Merriweather", serif;
+    --font-inter: "Inter", sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer utilities {
+    /* styles.module.css */
+    .custom-scrollbar::-webkit-scrollbar {
+        width: 10px !important;  /* Width of vertical scrollbar */
+        padding-right: 2px !important;
+    }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+    .custom-scrollbar::-webkit-scrollbar-track {
+        background: transparent;  /* Scrollbar track */
+        border-radius: 6px !important;
+    }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: rgb(207, 207, 207) !important;  /* Scrollbar handle */
+        border-radius: 6px !important;
+    }
+
+    /* Hover effects */
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+        background: rgb(110, 110, 110) !important;
+    }
 }
