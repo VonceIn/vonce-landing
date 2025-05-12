@@ -18,7 +18,10 @@ const config: Config = {
                     200: '#0f0d23'
                 },
                 accent: '#AB8BFF'
-            }
+            },
+            fontFamily: {
+                telegraf: ['Telegraf'],
+            },
         },
     },
     plugins: [],
