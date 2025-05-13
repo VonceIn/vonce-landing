@@ -68,47 +68,47 @@ export const MainPage = () => {
             y: -10,
             scale: 0.1,
             ease: "power1.out",
-            onStart: () => {
-                if (hasAnimated) return; // prevent re-running
-                hasAnimated = true;
+            // onStart: () => {
+            //     if (hasAnimated) return; // prevent re-running
+            //     hasAnimated = true;
 
-                gsap.to("#text", {
-                    opacity: 1,
-                    duration: 1.2,
-                    ease: "power2.out",
-                }); // start at same time as previous starts
+            //     gsap.to("#text", {
+            //         opacity: 1,
+            //         duration: 1.2,
+            //         ease: "power2.out",
+            //     }); // start at same time as previous starts
 
-                const split = new SplitText("#quote", { type: "words", wordsClass: "quote-word" });
+            //     const split = new SplitText("#quote", { type: "words", wordsClass: "quote-word" });
 
-                gsap.from(split.words, {
-                    opacity: 0,
-                    y: 30,
-                    filter: "blur(6px)",
-                    duration: 0.3,
-                    stagger: 0.07,
-                    ease: "power2.out",
-                    clearProps: "filter"
-                }); // happens right after #text fades in
+            //     gsap.from(split.words, {
+            //         opacity: 0,
+            //         y: 30,
+            //         filter: "blur(6px)",
+            //         duration: 0.3,
+            //         stagger: 0.07,
+            //         ease: "power2.out",
+            //         clearProps: "filter"
+            //     }); // happens right after #text fades in
 
-                gsap.from("#steps", {
-                    opacity: 0,
-                    y: 30,
-                    filter: "blur(6px)",
-                    duration: 0.5,
-                    stagger: 0.2,
-                    ease: "power2.out",
-                    clearProps: "filter"
-                });
+            //     gsap.from("#steps", {
+            //         opacity: 0,
+            //         y: 30,
+            //         filter: "blur(6px)",
+            //         duration: 0.5,
+            //         stagger: 0.2,
+            //         ease: "power2.out",
+            //         clearProps: "filter"
+            //     });
 
-                gsap.from("#email", {
-                    opacity: 0,
-                    y: 30,
-                    filter: "blur(6px)",
-                    duration: 1.2,
-                    ease: "power2.out",
-                    clearProps: "filter"
-                });
-            }
+            //     gsap.from("#email", {
+            //         opacity: 0,
+            //         y: 30,
+            //         filter: "blur(6px)",
+            //         duration: 1.2,
+            //         ease: "power2.out",
+            //         clearProps: "filter"
+            //     });
+            // } // For playing animation once without scrubbing
         }, ">0.3");
 
         tl.to("#logo1", {
@@ -116,6 +116,43 @@ export const MainPage = () => {
             borderBottomRightRadius: "9999px",
             ease: "power2.inOut",
         }, "<");
+
+        tl.to("#text", {
+            opacity: 1,
+            duration: 1.2,
+            ease: "power2.out",
+        }, '<'); // start at same time as previous starts
+
+        const split = new SplitText("#quote", { type: "words", wordsClass: "quote-word" });
+
+        tl.from(split.words, {
+            opacity: 0,
+            y: 30,
+            filter: "blur(6px)",
+            duration: 0.3,
+            stagger: 0.07,
+            ease: "power2.out",
+            clearProps: "filter"
+        }, '<'); // happens right after #text fades in
+
+        tl.from("#steps", {
+            opacity: 0,
+            y: 30,
+            filter: "blur(6px)",
+            duration: 0.5,
+            stagger: 0.2,
+            ease: "power2.out",
+            clearProps: "filter"
+        }, '<');
+
+        tl.from("#email", {
+            opacity: 0,
+            y: 30,
+            filter: "blur(6px)",
+            duration: 1.2,
+            ease: "power2.out",
+            clearProps: "filter"
+        }, '<');
     }, []);
 
     return (

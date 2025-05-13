@@ -69,7 +69,7 @@ export const Content = () => {
                     )
                 )}
             </div>
-            <div id='email' className='flex flex-col gap-2 items-center justify-center mt-20 font-radnika'>
+            <div id='email' className='flex flex-col gap-4 items-center justify-center mt-20 font-radnika'>
                 <span className='text-4xl font-semibold max-sm:text-3xl'>
                     Get Early Access
                 </span>

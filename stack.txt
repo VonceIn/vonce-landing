@@ -1,0 +1,128 @@
+Awesome — that’s a very real-world, socially engaging app idea 👏
+Let’s break down the **best tech stack** for your needs based on the core features of **Vonce**:
+
+---
+
+## 💡 Core Features in Vonce
+
+| Feature                     | Tech Need                      |
+| --------------------------- | ------------------------------ |
+| User auth                   | Secure login, session handling |
+| Matching system             | Timed, random pairing          |
+| Realtime chat               | WebSockets or pub/sub          |
+| Friend system               | Persistent relationships       |
+| 24-hour expiry              | Scheduled job / cron logic     |
+| Notifications (maybe later) | Push / in-app                  |
+
+---
+
+## ✅ Recommended Tech Stack (Scalable, Free-friendly)
+
+### 🧠 Backend & Realtime
+
+| Layer               | Tech                                                                                                                                             |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Database**        | [**Supabase** (PostgreSQL)](https://supabase.com) – powerful, free-tier-friendly                                                                 |
+| **Realtime Engine** | Supabase Realtime (via WebSockets, channels)                                                                                                     |
+| **Authentication**  | Supabase Auth (email, magic link, OAuth)                                                                                                         |
+| **Scheduled Jobs**  | Supabase Edge Functions + Cron (via [pg\_cron](https://supabase.com/docs/guides/database/extensions/pgcron)) or [SupaCron](https://supacron.com) |
+
+---
+
+### 💬 Chat System Options
+
+| Option                           | Why                                                             |
+| -------------------------------- | --------------------------------------------------------------- |
+| **Supabase Realtime Channels**   | Native WebSocket with RLS-secured row updates                   |
+| **Ably / Pusher** (optional)     | If you want richer pub/sub or fallback for Supabase limitations |
+| **Convex** (if you ever migrate) | Firebase-style sync and realtime in JS                          |
+
+---
+
+### 🖼️ Frontend
+
+| Tech                         | Role                                            |
+| ---------------------------- | ----------------------------------------------- |
+| **Next.js (App Router)**     | UI + SSR support                                |
+| **Tailwind CSS + Shadcn/UI** | Rapid, responsive UI                            |
+| **Framer Motion**            | Animations                                      |
+| **State: Zustand or Jotai**  | Lightweight and better than Redux for this case |
+| **React Query**              | For caching/mutations (optional, but clean)     |
+
+---
+
+### ☁️ Hosting & DevOps
+
+| Service                | Use                                               |
+| ---------------------- | ------------------------------------------------- |
+| **Vercel**             | Host Next.js frontend                             |
+| **Supabase**           | Backend + DB + Auth                               |
+| **Resend / Postmark**  | Email notifications (optional)                    |
+| **Sentry / LogRocket** | Monitoring / error logging (recommended for prod) |
+
+---
+
+## 🧠 Architectural Notes
+
+* Use **Supabase Auth** to track users.
+* Create a **`matches` table** where every 24hrs, a function pairs random unmatched users.
+* Use a `chat_sessions` table with RLS so only matched users can access the chat.
+* After 24 hrs → automatically **expire match** via cron + trigger cleanup.
+* Use Supabase Realtime to sync messages inside a `messages` table (with `match_id` foreign key).
+
+---
+
+## 🧪 Example Schema
+
+### Users
+
+```sql
+id UUID (auth.uid)
+username TEXT
+avatar_url TEXT
+```
+
+### Matches
+
+```sql
+id UUID
+user1 UUID
+user2 UUID
+expires_at TIMESTAMP
+is_friends BOOLEAN
+```
+
+### Messages
+
+```sql
+id UUID
+match_id UUID
+sender_id UUID
+text TEXT
+timestamp TIMESTAMP
+```
+
+---
+
+## 🔮 Future-Proofing
+
+* Push notifications → Use **OneSignal** or Firebase Cloud Messaging (via Supabase Edge)
+* File sharing → Supabase Storage
+* Video calls → Add **WebRTC (Daily / LiveKit)** if needed later
+
+---
+
+## 🚀 TL;DR Stack Recommendation
+
+| Layer          | Tech                                                      |
+| -------------- | --------------------------------------------------------- |
+| Frontend       | Next.js + Tailwind + Zustand                              |
+| Realtime       | Supabase Realtime (WS)                                    |
+| Backend DB     | Supabase (PostgreSQL)                                     |
+| Scheduled Jobs | Supabase Edge Functions + Cron                            |
+| Hosting        | Vercel                                                    |
+| Optional       | Sentry (logs), Ably (advanced realtime), OneSignal (push) |
+
+---
+
+Let me know if you want a schema setup or matching logic flow built!
