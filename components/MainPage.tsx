@@ -125,7 +125,7 @@ export const MainPage = () => {
         >
             <div id="logo1" className="will-change-transform absolute left-0 top-0 bg-secondary w-full h-[100vh] z-20 overflow-hidden flex items-center justify-center gap-20 max-lg:gap-10 max-sm:flex-col">
                 <span
-                    className="text-8xl text-primary font-[800] font-telegraf leading-30 absolute text-center max-lg:text-7xl max-sm:text-5xl max-sm:leading-16 max-lg:leading-20"
+                    className="text-8xl text-primary font-[800] font-radnika leading-30 absolute text-center max-lg:text-7xl max-sm:text-5xl max-sm:leading-16 max-lg:leading-20"
                     id="vonce-text"
                 >
                     How would you like to connect with someone new everyday?
@@ -134,7 +134,7 @@ export const MainPage = () => {
                 <span id="vonce-logo" className="text-primary font-telegraf font-[800] text-[200px] opacity-0 translate-y-[50px] max-lg:text-9xl max-sm:text-8xl">Vonce</span>
             </div>
             <Content />
-            <div className="flex flex-col max-sm:flex-row text-secondary absolute bottom-10 right-10 max-sm:right-2 max-sm:-bottom-9 gap-6">
+            <div className="flex flex-col max-sm:hidden text-secondary absolute bottom-10 right-10 max-sm:right-2 max-sm:-bottom-9 gap-6">
                 <FaInstagram className="w-12 h-12 max-sm:w-8 max-sm:h-8 cursor-pointer" />
                 <FaWhatsapp className="w-12 h-12 max-sm:w-8 max-sm:h-8 cursor-pointer" />
             </div>

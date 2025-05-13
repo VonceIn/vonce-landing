@@ -40,7 +40,7 @@ export const Content = () => {
             step: (
                 <>
                     Experience a<br />
-                    genuine momemnt
+                    genuine moment
                 </>
             )
         }
@@ -48,13 +48,13 @@ export const Content = () => {
 
     return (
         <div id="text" className="will-change-transform opacity-0 flex items-center justify-center w-full h-full text-black font-telegraf flex-col">
-            <span id='quote' className="font-[800] text-6xl text-center w-260 max-lg:w-full max-lg:text-5xl max-sm:w-full max-sm:text-4xl max-sm:p-12 max-sm:py-2">How would you like to connect with someone new everyday?</span>
+            <span id='quote' className="font-radnika font-[800] text-6xl text-center w-260 max-lg:w-full max-lg:text-5xl max-sm:w-full max-sm:text-4xl max-sm:p-12 max-sm:py-2">How would you like to connect with someone new everyday?</span>
             <span className='text-5xl font-[800] mt-10 flex gap-4 max-sm:gap-2 max-lg:text-4xl max-sm:text-3xl'>
                 Talk 
                 <span className='text-transparent bg-clip-text bg-gradient-to-br from-55% from-secondary to-[#faa6a6] text-5xl font-[800] max-lg:text-4xl max-sm:text-3xl'>Vonce.
                 </span>
             </span>
-            <span id='quote' className='text-center text-3xl font-[200] font-telegraf mt-6 max-sm:text-2xl'> 
+            <span id='quote' className='text-center text-3xl font-[200] font-ubuntu mt-6 max-sm:text-2xl'> 
                 Chat with someone new.<br />
                 Everyday. No one's a stranger<br />
                 anymore.
@@ -63,13 +63,13 @@ export const Content = () => {
                 {steps.map(step => (
                         <div key={step.url} id='steps' className='flex flex-col items-center justify-center'>
                             <img src={step.url} className='w-20'></img>
-                            <span className='font-sans text-center font-bold'>{step.name}</span>
-                            <span className='font-telegraf text-center'>{step.step}</span>
+                            <span className='font-radnika text-center font-bold'>{step.name}</span>
+                            <span className='font-sans text-center'>{step.step}</span>
                         </div>
                     )
                 )}
             </div>
-            <div id='email' className='flex flex-col gap-2 items-center justify-center mt-20'>
+            <div id='email' className='flex flex-col gap-2 items-center justify-center mt-20 font-radnika'>
                 <span className='text-4xl font-semibold max-sm:text-3xl'>
                     Get Early Access
                 </span>

@@ -21,6 +21,7 @@ const config: Config = {
             },
             fontFamily: {
                 telegraf: ['Telegraf'],
+                radnika: ['Radnika']
             },
         },
     },
