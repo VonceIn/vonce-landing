@@ -47,7 +47,7 @@ export const Content = () => {
     ]
 
     return (
-        <div id="text" className="opacity-0 flex items-center justify-center w-full h-full text-black font-telegraf flex-col">
+        <div id="text" className="will-change-transform opacity-0 flex items-center justify-center w-full h-full text-black font-telegraf flex-col">
             <span id='quote' className="font-[800] text-6xl text-center w-260 max-lg:w-full max-lg:text-5xl max-sm:w-full max-sm:text-4xl max-sm:p-12 max-sm:py-2">How would you like to connect with someone new everyday?</span>
             <span className='text-5xl font-[800] mt-10 flex gap-4 max-sm:gap-2 max-lg:text-4xl max-sm:text-3xl'>
                 Talk 

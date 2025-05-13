@@ -6,15 +6,22 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import SplitText from "gsap/SplitText";
 import { Content } from "./Content";
 import { FaInstagram, FaWhatsapp } from 'react-icons/fa';
+import { useEffect } from "react";
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 export const MainPage = () => {
-    useGSAP(() => {
-        const refresh = () => ScrollTrigger.refresh();
+    let hasAnimated = false;
+
+    useEffect(() => {
+        const refresh = () => ScrollTrigger.refresh(true);
         window.addEventListener("resize", refresh);
-        return () => window.removeEventListener("resize", refresh);
-      }, []);
+        window.addEventListener("orientationchange", refresh);
+        return () => {
+          window.removeEventListener("resize", refresh);
+          window.removeEventListener("orientationchange", refresh);
+        };
+    }, []);
 
     useGSAP(() => {
         ScrollTrigger.create({
@@ -62,6 +69,9 @@ export const MainPage = () => {
             scale: 0.1,
             ease: "power1.out",
             onStart: () => {
+                if (hasAnimated) return; // prevent re-running
+                hasAnimated = true;
+
                 gsap.to("#text", {
                     opacity: 1,
                     duration: 1.2,
@@ -111,9 +121,9 @@ export const MainPage = () => {
     return (
         <div
             id="main-pin"
-            className="bg-primary w-full min-h-[100vh] h-max flex items-center justify-center z-10 relative"
+            className="will-change-transform bg-primary w-full min-h-[100vh] h-max flex items-center justify-center z-10 relative"
         >
-            <div id="logo1" className="fixed left-0 top-0 bg-secondary w-full h-[100vh] z-20 overflow-hidden flex items-center justify-center gap-20 max-lg:gap-10 max-sm:flex-col">
+            <div id="logo1" className="will-change-transform absolute left-0 top-0 bg-secondary w-full h-[100vh] z-20 overflow-hidden flex items-center justify-center gap-20 max-lg:gap-10 max-sm:flex-col">
                 <span
                     className="text-8xl text-primary font-[800] font-telegraf leading-30 absolute text-center max-lg:text-7xl max-sm:text-5xl max-sm:leading-16 max-lg:leading-20"
                     id="vonce-text"
