@@ -13,11 +13,8 @@ const config: Config = {
                     200: '#A8B5DB',
                     300: '#9CA4AB'
                 },
-                dark: {
-                    100: '#221f3d',
-                    200: '#0f0d23'
-                },
-                accent: '#AB8BFF'
+                accent: '#AB8BFF',
+                dark: '#181922',
             },
             fontFamily: {
                 telegraf: ['Telegraf'],

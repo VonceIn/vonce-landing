@@ -74,7 +74,7 @@ export const Content = () => {
                     Get Early Access
                 </span>
                 <div className='flex h-max gap-2'>
-                    <input type='email' placeholder='Email address' className='py-3 px-4 w-55 max-sm:w-50 border rounded-lg text-black placeholder:text-black text-[16px] max-sm:text-[14px] outline-0 focus:outline-2 outline-offset-2 outline-secondary' />
+                    <input type='email' placeholder='Email address' className='py-3 px-4 w-55 max-sm:w-50 border rounded-lg text-black placeholder:text-black text-[16px] max-sm:text-[14px] outline-0 focus:outline-2 outline-offset-2 outline-secondary transition-[outline] duration-40' />
                     <button className='bg-red-500 w-max px-2 h-full rounded-lg text-primary cursor-pointer active:bg-red-800 transition-[background] text-[16px] max-sm:text-[14px]'>
                         Get Early Access
                     </button>
