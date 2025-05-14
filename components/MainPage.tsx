@@ -140,7 +140,7 @@ export const MainPage = () => {
             y: 30,
             filter: "blur(6px)",
             duration: 0.5,
-            stagger: 0.3,
+            stagger: 0.2,
             ease: "power2.out",
             clearProps: "filter"
         }, '<');
@@ -149,7 +149,7 @@ export const MainPage = () => {
             opacity: 0,
             y: 30,
             filter: "blur(6px)",
-            duration: 0.3,
+            duration: 1.2,
             ease: "power2.out",
             clearProps: "filter"
         }, '<');
