@@ -12,8 +12,6 @@ export default function Home() {
             </div> */}
             <MainPage />
             <Footer />
-
-            // checking commit
         </div>
     );
 }
