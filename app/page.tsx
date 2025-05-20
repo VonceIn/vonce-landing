@@ -13,6 +13,5 @@ export default function Home() {
             <MainPage />
             <Footer />
         </div>
-        // Single Vonce repo comment
     );
 }
