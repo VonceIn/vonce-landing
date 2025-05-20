@@ -13,5 +13,5 @@ export default function Home() {
             <MainPage />
             <Footer />
         </div>
-    );//comit check
+    );
 }
