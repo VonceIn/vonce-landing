@@ -12,7 +12,6 @@ export default function Home() {
             </div> */}
             <MainPage />
             <Footer />
-            //comment
         </div>
     );
 }
