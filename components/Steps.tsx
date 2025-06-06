@@ -82,13 +82,13 @@ export const Steps = () => {
                     trigger: '.steps',
                     start: 'top 80%',
                     toggleActions: 'play none none reverse',
-                    markers: {
-                        startColor: "blue",
-                        endColor: "orange",
-                        fontSize: "14px",
-                        indent: 20,
-                        fontWeight: "bold",
-                    }
+                    // markers: {
+                    //     startColor: "blue",
+                    //     endColor: "orange",
+                    //     fontSize: "14px",
+                    //     indent: 20,
+                    //     fontWeight: "bold",
+                    // }
                 }
             });
         });

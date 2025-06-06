@@ -32,7 +32,7 @@ export const MainPage = () => {
             end: "+=150%",            // Stay pinned for 150% of viewport height
             pin: true,                // Actually pin the element
             pinSpacing: true,         // Leave space behind after pinning so page scroll continues
-            markers: true,            // Debug markers
+            markers: false,            // Debug markers
             id: 'main-pin',
         });
 
@@ -47,7 +47,7 @@ export const MainPage = () => {
                 start: "top top",        // When top of #logo 1hits top of viewport
                 end: "bottom top",       // Until logo scrolls out
                 scrub: true,             // Sync with scroll
-                markers: true,           // Optional: for debugging
+                markers: false,           // Optional: for debugging
                 id: 'logo1'
             },
         });
