@@ -1,0 +1,62 @@
+tl.to("#text", {
+            opacity: 1,
+            duration: 1.2,
+            ease: "power2.out",
+        }, '<'); // start at same time as previous starts
+
+        const split = new SplitText("#quote", { type: "words", wordsClass: "quote-word" });
+
+        tl.from(split.words, {
+            opacity: 0,
+            y: 30,
+            filter: "blur(6px)",
+            duration: 0.3,
+            stagger: 0.07,
+            ease: "power2.out",
+            clearProps: "filter"
+        }, '<'); // happens right after #text fades in
+
+        tl.from("#steps", {
+            opacity: 0,
+            y: 30,
+            filter: "blur(6px)",
+            duration: 0.5,
+            stagger: 0.2,
+            ease: "power2.out",
+            clearProps: "filter"
+        }, '<');
+
+        tl.from("#email", {
+            opacity: 0,
+            y: 30,
+            filter: "blur(6px)",
+            duration: 1.2,
+            ease: "power2.out",
+            clearProps: "filter"
+        }, '<');
+
+
+<div id="text" className="will-change-transform opacity-0 flex items-center justify-center w-full h-[100vh] text-black font-telegraf flex-col">
+    <span id='quote' className="font-radnika font-[800] text-6xl text-center w-260 max-lg:w-full max-lg:text-5xl max-sm:w-full max-sm:text-4xl max-sm:p-12 max-sm:py-2">How would you like to connect with someone new everyday?</span>
+    <span className='text-5xl font-[800] mt-10 flex gap-4 max-sm:gap-2 max-lg:text-4xl max-sm:text-3xl'>
+        Talk 
+        <span className='text-transparent bg-clip-text bg-gradient-to-br from-55% from-secondary to-[#faa6a6] text-5xl font-[800] max-lg:text-4xl max-sm:text-3xl'>Vonce.
+        </span>
+    </span>
+    <span id='quote' className='text-center text-3xl font-[200] font-ubuntu mt-6 max-sm:text-2xl'> 
+        Chat with someone new.<br />
+        Everyday. No one's a stranger<br />
+        anymore.
+    </span>
+    <div id='email' className='flex flex-col gap-4 items-center justify-center mt-20 font-radnika'>
+        <span className='text-4xl font-semibold max-sm:text-3xl'>
+            Get Early Access
+        </span>
+        <div className='flex h-max gap-2'>
+            <input type='email' placeholder='Email address' className='py-3 px-4 w-55 max-sm:w-50 border rounded-lg text-black placeholder:text-black text-[16px] max-sm:text-[14px] outline-0 focus:outline-2 outline-offset-2 outline-secondary transition-[outline] duration-40' />
+            <button className='bg-red-500 w-max px-2 h-full rounded-lg text-primary cursor-pointer active:bg-red-800 transition-[background] text-[16px] max-sm:text-[14px]'>
+                Get Early Access
+            </button>
+        </div>
+    </div>
+</div>

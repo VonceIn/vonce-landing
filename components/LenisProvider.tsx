@@ -2,9 +2,12 @@
 
 import { useEffect } from "react";
 import Lenis from "lenis";
+import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
 export function LenisProvider({ children }: { children: React.ReactNode }) {
+    gsap.registerPlugin(ScrollTrigger);
+
     useEffect(() => {
         const lenis = new Lenis({
             duration: 1.2,

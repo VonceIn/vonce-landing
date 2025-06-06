@@ -4,6 +4,10 @@
 @import "tailwindcss";
 @config "../tailwind.config.ts";
 
+html, body {
+    scroll-behavior: smooth;
+}
+
 @theme {
     --font-merriweather: "Merriweather", serif;
     --font-inter: "Inter", sans-serif;
@@ -23,13 +27,43 @@
     }
 
     .custom-scrollbar::-webkit-scrollbar-thumb {
-        background: rgb(207, 207, 207) !important;  /* Scrollbar handle */
+        background: rgb(255, 87, 87) !important;  /* Scrollbar handle */
         border-radius: 6px !important;
     }
 
     /* Hover effects */
     .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-        background: rgb(110, 110, 110) !important;
+        background: rgb(172, 48, 48) !important;
+    }
+
+    .footer-animated-underline {
+        @apply relative after:bg-primary after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:transition-transform after:duration-300 after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-100 after:ease-[cubic-bezier(0.65_0.05_0.36_1)]
+    }
+
+    .error-progress-bar {
+        background-color: #fff7eb !important; /* custom color */
+        height: 4px !important;               /* adjust thickness */
+        border-radius: 0 0 8px 8px;
+    }
+
+    ::view-transition-group(root) {
+        z-index: auto !important;
+    }
+
+    ::view-transition-image-pair(root) {
+        isolation: isolate;
+        will-change: transform, opacity, scale;
+        z-index: 1;
+    }
+
+    ::view-transition-new(root) {
+        z-index: 2;
+        animation: none !important;
+    }
+
+    ::view-transition-old(root) {
+        z-index: 1;
+        animation: none !important;
     }
 }
 
