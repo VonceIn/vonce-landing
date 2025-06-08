@@ -48,8 +48,12 @@ export const MainPage = () => {
                 end: "bottom top",       // Until logo scrolls out
                 scrub: true,             // Sync with scroll
                 markers: false,           // Optional: for debugging
-                id: 'logo1'
-            },
+                id: 'logo1',
+                onLeave: self => {
+                    self.disable(); // disables trigger so it won't reverse
+                    tl.progress(1); // ensures timeline stays at the end
+                }
+            }
         });
 
         // Fade + move text up (bottom to top)
