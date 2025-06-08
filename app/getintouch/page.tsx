@@ -7,6 +7,7 @@ import { isValidEmail } from '@/utils/validate';
 import { ToastContainer } from 'react-toastify';
 import { createClient } from '@/utils/supabase/client';
 import { useRouter } from 'next/navigation';
+import { IoHome } from "react-icons/io5";
 
 const GetInTouch = () => {
     const router = useRouter();
@@ -46,10 +47,7 @@ const GetInTouch = () => {
                 message
             }]);
 
-        if (uploadError?.code === "23505") {
-            notifyError({message: `${email} is already used once!`});
-            return;
-        } else if (uploadError) {
+        if (uploadError) {
             notifyError({message: 'An error occured, Please try again'});
             return;
         }
@@ -61,13 +59,16 @@ const GetInTouch = () => {
     }
 
     return (
-        <div className='w-dvw h-dvh bg-primary flex items-center justify-center p-4'>
+        <div className='w-dvw h-dvh bg-primary flex items-center justify-center p-4 max-sm:p-10 max-sm:pt-13'>
+            <div className='absolute left-1 lg:left-4 top-1 lg:top-4 bg-primary p-3 border rounded-full z-40 cursor-pointer active:scale-95 transition-all' title='Home' onClick={() => router.push('/')}>
+                <IoHome className='text-secondary size-7' />
+            </div>
             <div
                 className="absolute inset-0 bg-[url('/images/vonce_background.png')] bg-repeat opacity-22 pointer-events-none z-0"
                 style={{ backgroundPosition: '0px -52px' }}
             />
             <form 
-                className='w-[564px] max-lg:w-[400] h-[868px] max-lg:h-full border rounded-[58px] bg-primary z-20 flex flex-col items-center justify-around p-4'
+                className='w-[564px] max-lg:w-[500px] h-[868px] max-lg:h-full border rounded-[58px] bg-primary z-20 flex flex-col items-center justify-around p-4'
                 style={{
                     boxShadow: '0px 2px 40.3px 5px rgba(0,0,0,0.5)',
                 }}
