@@ -13,17 +13,17 @@ export function LenisProvider({ children }: { children: React.ReactNode }) {
             duration: 1.2,
             easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t))
         })
-    
+
         function raf(time: number) {
             lenis.raf(time)
             requestAnimationFrame(raf)
         }
-    
+
         requestAnimationFrame(raf)
-    
+
         // Connect Lenis to ScrollTrigger
         lenis.on('scroll', ScrollTrigger.update)
-    
+
         ScrollTrigger.scrollerProxy(document.body, {
             scrollTop(value) {
             return value !== undefined ? lenis.scrollTo(value) : window.scrollY
@@ -44,7 +44,7 @@ export function LenisProvider({ children }: { children: React.ReactNode }) {
         return () => {
             lenis.destroy()
         }
-    }, [])
-    
+    }, []);
+
     return <>{children}</>
 }
