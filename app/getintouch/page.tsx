@@ -60,9 +60,9 @@ const GetInTouch = () => {
 
     return (
         <div className='w-dvw h-dvh bg-primary flex items-center justify-center p-4 max-sm:p-10 max-sm:pt-13'>
-            <div className='absolute left-1 lg:left-4 top-1 lg:top-4 bg-primary p-3 border rounded-full z-40 cursor-pointer active:scale-95 transition-all' title='Home' onClick={() => router.push('/')}>
+            <button className='absolute left-1 lg:left-4 top-1 lg:top-4 bg-primary p-3 border rounded-full z-40 cursor-pointer active:scale-95 transition-all' title='Home' onClick={() => router.push('/')}>
                 <IoHome className='text-secondary size-7' />
-            </div>
+            </button>
             <div
                 className="absolute inset-0 bg-[url('/images/vonce_background.png')] bg-repeat opacity-22 pointer-events-none z-0"
                 style={{ backgroundPosition: '0px -52px' }}

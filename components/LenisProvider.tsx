@@ -15,18 +15,18 @@ export function LenisProvider({ children }: { children: React.ReactNode }) {
         })
 
         function raf(time: number) {
-            lenis.raf(time)
-            requestAnimationFrame(raf)
+            lenis.raf(time);
+            requestAnimationFrame(raf);
         }
 
-        requestAnimationFrame(raf)
+        requestAnimationFrame(raf);
 
         // Connect Lenis to ScrollTrigger
-        lenis.on('scroll', ScrollTrigger.update)
+        lenis.on('scroll', ScrollTrigger.update);
 
         ScrollTrigger.scrollerProxy(document.body, {
             scrollTop(value) {
-            return value !== undefined ? lenis.scrollTo(value) : window.scrollY
+                return value !== undefined ? lenis.scrollTo(value) : window.scrollY
             },
             getBoundingClientRect() {
             return {
@@ -37,12 +37,12 @@ export function LenisProvider({ children }: { children: React.ReactNode }) {
             }
             },
             pinType: document.body.style.transform ? 'transform' : 'fixed'
-        })
+        });
 
-        ScrollTrigger.refresh()
+        ScrollTrigger.refresh();
 
         return () => {
-            lenis.destroy()
+            lenis.destroy();
         }
     }, []);
 
