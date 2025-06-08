@@ -41,7 +41,7 @@ export const Content = () => {
             <div className='w-full min-h-[100vh] max-h-max text-black font-telegraf flex flex-row max-xl:flex-col'>
                 <div className='flex flex-1 flex-col items-center justify-center gap-20 max-sm:gap-10'>
                     <div className='flex flex-col gap-4 max-sm:pl-5 pl-20'>
-                        <div className='xl:hidden flex w-full justify-end gap-6 mt-4 sm:pr-8 pr-4' id='vonce_pills'>
+                        <div className='xl:hidden flex w-full justify-end gap-2 sm:gap-6 mt-4 sm:pr-8 pr-4' id='vonce_pills'>
                             <PillShapedButton 
                                 text='What is Vonce?' 
                                 className='px-4 py-2 sm:px-6 sm:py-3 w-max' 
