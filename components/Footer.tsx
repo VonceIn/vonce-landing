@@ -47,7 +47,7 @@ const Footer = () => {
                     <span className='text-left w-full font-ubuntu font-[500] text-[20px] text-primary'>Connect</span>
                     <div className='flex gap-2 max-sm:w-full'>
                         <img src='/images/mail_icon.png' className='w-8' />
-                        <span className='font-ubuntu font-[400] text-[16px] text-primary cursor-pointer relative footer-animated-underline'>support@vonce.in</span>
+                        <span className='font-ubuntu font-[400] text-[16px] text-primary cursor-pointer relative footer-animated-underline'>ask@vonce.in</span>
                     </div>
                     <div className='flex gap-4 w-full'>
                         <FaInstagram size={42} className='text-primary cursor-pointer' />
