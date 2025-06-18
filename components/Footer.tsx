@@ -1,5 +1,8 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
 import { FaInstagram, FaWhatsapp } from 'react-icons/fa';
+import ReferModal from './ReferModal';
 
 const footerSections = [
     {
@@ -57,17 +60,32 @@ const Footer = () => {
 }
 
 const FooterSection = ({ section }: { section: typeof footerSections[number] }) => {
+     const [referModalOpen, setReferModalOpen] = useState(false);
 
     return (
         <div className='w-[209px] max-xl:w-max max-sm:w-1/2 flex flex-col p-6 gap-4 items-center justify-start'>
             <span className='text-left w-full font-ubuntu font-[500] text-[20px] text-primary'>{section.title}</span>
-            {section.links.map(link => (
-                <a key={link.linkTitle} {...(link.link ? { href: link.link } : {})} className='text-left w-full font-ubuntu font-[400] text-[16px] text-primary cursor-pointer'>
-                    <span className='relative footer-animated-underline'>
-                        {link.linkTitle}
-                    </span>
-                </a>
-            ))}
+            {section.links.map(link => {
+                if (link.linkTitle === 'Refer to a friend') {
+                    return (
+                        <span key={link.linkTitle} onClick={() => setReferModalOpen(true)} className='text-left w-full font-ubuntu font-[400] text-[16px] text-primary cursor-pointer'>
+                            <span className='relative footer-animated-underline'>
+                                {link.linkTitle}
+                            </span>
+                        </span>
+                    );
+                } else {
+                    return (
+                        <a key={link.linkTitle} {...(link.link ? { href: link.link } : {})} className='text-left w-full font-ubuntu font-[400] text-[16px] text-primary cursor-pointer'>
+                            <span className='relative footer-animated-underline'>
+                                {link.linkTitle}
+                            </span>
+                        </a>
+                    );
+                }
+            })}
+
+            <ReferModal referModalOpen={referModalOpen} setReferModalOpen={setReferModalOpen} />
         </div>
     );
 }
