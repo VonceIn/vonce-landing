@@ -1,12 +1,14 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import PillShapedButton from './PillShapedButton';
 import gsap from 'gsap';
 import ScrollTrigger from "gsap/ScrollTrigger";
 import SplitText from "gsap/SplitText";
 import { useGSAP } from '@gsap/react';
 import { useTransitionRouter } from 'next-view-transitions';
+import { AnimatePresence, motion } from 'framer-motion';
+import ReferModal from './ReferModal';
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
@@ -41,6 +43,7 @@ const steps = [{
 
 export const Steps = () => {
     const router = useTransitionRouter();
+    const [referModalOpen, setReferModalOpen] = useState(false);
 
     useGSAP(() => {
         const mm = gsap.matchMedia();
@@ -80,7 +83,7 @@ export const Steps = () => {
                 stagger: 0.2,
                 scrollTrigger: {
                     trigger: '.steps',
-                    start: 'top 80%',
+                    start: 'top 90%',
                     toggleActions: 'play none none reverse',
                     // markers: {
                     //     startColor: "blue",
@@ -152,24 +155,24 @@ export const Steps = () => {
                             style={{
                                 boxShadow: '0px 2px 10px 3px  rgba(255,87,87,0.5)'
                             }}
+                            onClick={() => setReferModalOpen(true)}
                         />
 
-                        <div
+                        <PillShapedButton text='Get in Touch' 
+                            className='px-6 py-3 w-[300px] h-[100px] border' 
+                            textClassName='font-ubuntu font-[700] text-[30px] max-sm:text-[28px]' 
+                            style={{
+                                boxShadow: '0px 2px 10px 3px rgba(255,87,87,0.5)'
+                            }}
                             onClick={() => router.push('/getintouch', {
                                 onTransitionReady: pageAnimation
                             })}
-                        >
-                            <PillShapedButton text='Get in Touch' 
-                                className='px-6 py-3 w-[300px] h-[100px] border' 
-                                textClassName='font-ubuntu font-[700] text-[30px] max-sm:text-[28px]' 
-                                style={{
-                                    boxShadow: '0px 2px 10px 3px rgba(255,87,87,0.5)'
-                                }}
-                            />
-                        </div>
+                        />
                     </div>
                 </div>
             </div>
+
+            <ReferModal referModalOpen={referModalOpen} setReferModalOpen={setReferModalOpen} />
         </div>
     );
 }

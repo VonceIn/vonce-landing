@@ -15,25 +15,26 @@ html, body {
 }
 
 @layer utilities {
-    /* styles.module.css */
-    .custom-scrollbar::-webkit-scrollbar {
-        width: 10px !important;  /* Width of vertical scrollbar */
-        padding-right: 2px !important;
+    ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px; /* for horizontal scrollbar */
     }
 
-    .custom-scrollbar::-webkit-scrollbar-track {
-        background: transparent;  /* Scrollbar track */
-        border-radius: 6px !important;
+    /* Scrollbar track (background) */
+    ::-webkit-scrollbar-track {
+        background: #fff7eb;
+        border-radius: 10px;
     }
 
-    .custom-scrollbar::-webkit-scrollbar-thumb {
-        background: rgb(255, 87, 87) !important;  /* Scrollbar handle */
-        border-radius: 6px !important;
+    /* Scrollbar thumb (the draggable part) */
+    ::-webkit-scrollbar-thumb {
+        background: #f53838;
+        border-radius: 10px;
     }
 
-    /* Hover effects */
-    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-        background: rgb(172, 48, 48) !important;
+    /* On hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #a12727;
     }
 
     .footer-animated-underline {
