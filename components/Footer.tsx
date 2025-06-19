@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { FaInstagram, FaWhatsapp } from 'react-icons/fa';
+import { FaInstagram, FaLinkedin } from 'react-icons/fa';
 import ReferModal from './ReferModal';
 
 const footerSections = [
@@ -50,8 +50,12 @@ const Footer = () => {
                         <span className='font-ubuntu font-[400] text-[16px] text-primary cursor-pointer relative footer-animated-underline'>ask@vonce.in</span>
                     </div>
                     <div className='flex gap-4 w-full'>
-                        <FaInstagram size={42} className='text-primary cursor-pointer' />
-                        <FaWhatsapp size={42} className='text-primary cursor-pointer' />
+                        <a href="https://www.instagram.com/vonce.in?igsh=dHJyc2Q1b2Rmc3hj" target='_blank'>
+                            <FaInstagram size={42} className='text-primary cursor-pointer' />
+                        </a>
+                        <a href="https://www.linkedin.com/posts/samhithmylapilli_%F0%9D%99%83%F0%9D%99%96%F0%9D%99%AB%F0%9D%99%9A-%F0%9D%99%AE%F0%9D%99%A4%F0%9D%99%AA-%F0%9D%99%9A%F0%9D%99%AB%F0%9D%99%9A%F0%9D%99%A7-%F0%9D%99%A7%F0%9D%99%9A%F0%9D%99%96%F0%9D%99%A1%F0%9D%99%9E%F0%9D%99%AF%F0%9D%99%9A%F0%9D%99%99-activity-7341182468487593986-F-C9?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAD2MOO8BT_b1spzNfL20KEjvpHHHNgGdxzo " target='_blank'>
+                            <FaLinkedin size={42} className='text-primary cursor-pointer' />
+                        </a>
                     </div>
                 </div>
             </div>
