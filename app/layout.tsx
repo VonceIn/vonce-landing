@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { LenisProvider } from "@/components/LenisProvider";
 import { ViewTransitions } from 'next-view-transitions';
+import { Analytics } from "@vercel/analytics/next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,6 +33,7 @@ export default function RootLayout({
                         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
                     >
                         {children}
+                        <Analytics />
                         <div id="modal-root" />
                     </body>
                 </html>
