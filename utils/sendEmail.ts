@@ -54,13 +54,13 @@ export const sendEmail = async (to: string) => {
                                     <tr>
                                         <td style="padding: 20px 30px; text-align: center" class="x_664557157content-padding">
                                             <p style="padding: 0px 0px 20px; line-height: 1.6; margin: 0px;">
-                                                <span class="size" style="font-size: 16px; padding: 0px 0px 20px; line-height: 1.6; margin: 0px;">
+                                                <span class="size" style="font-size: 16px; padding: 0px 0px 20px; line-height: 1.6; margin: 0px; color:rgb(40, 40, 40)">
                                                     Welcome to the Vonce community! We're thrilled to have you join us on this journey to create more genuine connections. Get ready for a fresh take on social networking.
                                                     <br>
                                                 </span>
                                             </p>
                                             <p style="padding: 0px 0px 25px; line-height: 1.6; margin: 0px;">
-                                                <span class="size" style="font-size: 16px; padding: 0px 0px 25px; line-height: 1.6; margin: 0px;">
+                                                <span class="size" style="font-size: 16px; padding: 0px 0px 25px; line-height: 1.6; margin: 0px; color:rgb(40, 40, 40)">
                                                     In the meantime, stay connected with us and follow our story:
                                                     <br>
                                                 </span>
@@ -89,7 +89,7 @@ export const sendEmail = async (to: string) => {
                                                 </tbody>
                                             </table>
                                             <p style="padding: 0px 0px 30px; line-height: 1.6; margin: 0px;">
-                                                <span class="size" style="font-size: 16px; padding: 0px 0px 30px; line-height: 1.6; margin: 0px;">
+                                                <span class="size" style="font-size: 16px; padding: 0px 0px 30px; line-height: 1.6; margin: 0px; color:rgb(40, 40, 40)">
                                                     Have any feedback, questions, or thoughts you'd like to share? Just hit reply to this email or
                                                     <span style="box-sizing: border-box; margin: 0; padding: 0; text-align: left">
                                                         &nbsp;
