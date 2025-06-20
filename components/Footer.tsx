@@ -16,8 +16,8 @@ const footerSections = [
     {
         title: 'Legal',
         links: [
-            { linkTitle: 'Terms & Conditions', link: '' },
-            { linkTitle: 'Privacy Policy', link: '' },
+            { linkTitle: 'Terms & Conditions', link: 'https://www.termsfeed.com/live/0222630e-8efd-46af-a189-c1a9ebc3e6e2' },
+            { linkTitle: 'Privacy Policy', link: 'https://www.privacypolicies.com/live/cf1985c4-bcd7-4430-9443-03cdbfb2f01d' },
         ]
     }
 ] as const;
@@ -45,16 +45,16 @@ const Footer = () => {
                 )}
                 <div className='w-[209px] flex flex-col p-6 gap-4 items-center justify-start max-xl:w-max max-sm:w-full'>
                     <span className='text-left w-full font-ubuntu font-[500] text-[20px] text-primary'>Connect</span>
-                    <div className='flex gap-2 max-sm:w-full'>
+                    <div className='flex gap-2 max-sm:w-full w-full'>
                         <img src='/images/mail_icon.png' className='w-8' />
                         <span className='font-ubuntu font-[400] text-[16px] text-primary cursor-pointer relative footer-animated-underline'>ask@vonce.in</span>
                     </div>
-                    <div className='flex gap-4 w-full'>
-                        <a href="https://www.instagram.com/vonce.in?igsh=dHJyc2Q1b2Rmc3hj" target='_blank'>
-                            <FaInstagram size={42} className='text-primary cursor-pointer' />
-                        </a>
+                    <div className='flex gap-4 w-full'> 
                         <a href="https://www.linkedin.com/company/vonceapp" target='_blank'>
                             <FaLinkedin size={42} className='text-primary cursor-pointer' />
+                        </a>
+                        <a href="https://www.instagram.com/vonce.in?igsh=dHJyc2Q1b2Rmc3hj" target='_blank'>
+                            <FaInstagram size={42} className='text-primary cursor-pointer' />
                         </a>
                     </div>
                 </div>
@@ -80,7 +80,7 @@ const FooterSection = ({ section }: { section: typeof footerSections[number] }) 
                     );
                 } else {
                     return (
-                        <a key={link.linkTitle} {...(link.link ? { href: link.link } : {})} className='text-left w-full font-ubuntu font-[400] text-[16px] text-primary cursor-pointer'>
+                        <a key={link.linkTitle} {...(link.link ? { href: link.link } : {})} target='_blank' className='text-left w-full font-ubuntu font-[400] text-[16px] text-primary cursor-pointer'>
                             <span className='relative footer-animated-underline'>
                                 {link.linkTitle}
                             </span>

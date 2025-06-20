@@ -34,6 +34,19 @@ export const Content = () => {
         }
 
         notifySuccess({message: "Successfully signed up for early access!"});
+
+        const res = await fetch('/api/send-early-access-mail', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email })
+        });
+
+        const data = await res.json();
+
+        if (!res.ok) {
+            notifyError({ message: data.message || 'Failed to send confirmation email' });
+            return;
+        }
     }
 
     return (

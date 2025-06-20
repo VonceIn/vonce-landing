@@ -5,7 +5,7 @@ import { useGSAP } from "@gsap/react";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import SplitText from "gsap/SplitText";
 import { Content } from "./Content";
-import { FaInstagram, FaWhatsapp } from 'react-icons/fa';
+import { IoArrowDownCircle } from "react-icons/io5";
 import { useEffect } from "react";
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
@@ -22,6 +22,25 @@ export const MainPage = () => {
         return () => {
           window.removeEventListener("resize", refresh);
           window.removeEventListener("orientationchange", refresh);
+        };
+    }, []);
+
+    useGSAP(() => {
+    const arrowFade = gsap.to("#scroll-arrow", {
+            opacity: 0,
+            duration: 0.5,
+            ease: "power1.out",
+            scrollTrigger: {
+            trigger: "#main-pin",
+            start: "top+=20 top", // start fade just after 20px scroll
+            end: "top+=100 top",  // fully faded by 100px scroll
+            scrub: false,
+            markers: false,
+        }
+    });
+
+        return () => {
+            arrowFade.kill();
         };
     }, []);
 
@@ -146,6 +165,7 @@ export const MainPage = () => {
             <div
                 className="absolute inset-0 bg-[url('/images/vonce_background.png')] bg-repeat opacity-22 pointer-events-none z-0"
             />
+
             <div id="logo1" className="will-change-transform absolute left-0 top-0 bg-secondary w-full h-[100vh] z-20 overflow-hidden flex items-center justify-center gap-20 max-lg:gap-10 max-sm:flex-col">
                 <span
                     className="text-8xl text-primary font-[700] font-ubuntu leading-30 absolute text-center max-lg:text-7xl max-sm:text-[42px] max-sm:leading-16 max-lg:leading-20 italic"
@@ -155,6 +175,14 @@ export const MainPage = () => {
                     One conversation. <br />
                     Everyday.
                 </span>
+
+                <div
+                id="scroll-arrow"
+                className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-300 text-white text-xl flex flex-col items-center opacity-100 transition-opacity duration-500"
+                >
+                    <span className="animate-bounce"><IoArrowDownCircle /></span>
+                    <span className="text-sm mt-1 font-ubuntu font-semibold">Scroll down</span>
+                </div>
 
                 <img id="vonce-logo" src='/images/vonce_logo_no_bg.png' alt="vonce-logo" className="object-contain w-80 h-80 opacity-0 translate-y-[50px] max-lg:w-40 max-sm:w-35" />
 
