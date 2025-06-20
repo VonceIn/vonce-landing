@@ -181,7 +181,7 @@ export const MainPage = () => {
                 className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-300 text-white text-xl flex flex-col items-center opacity-100 transition-opacity duration-500"
                 >
                     <span className="animate-bounce"><IoArrowDownCircle /></span>
-                    <span className="text-sm mt-1 font-ubuntu font-semibold">Scroll down</span>
+                    <span className="text-sm mt-1 font-ubuntu">Scroll down</span>
                 </div>
 
                 <img id="vonce-logo" src='/images/vonce_logo_no_bg.png' alt="vonce-logo" className="object-contain w-80 h-80 opacity-0 translate-y-[50px] max-lg:w-40 max-sm:w-35" />
