@@ -56,6 +56,8 @@ export const MainPage = () => {
         });
 
         ScrollTrigger.refresh(true);
+        ScrollTrigger.config({syncInterval: 999999999});
+        // ScrollTrigger.normalizeScroll(true);
     }, []);
 
     useGSAP(() => {

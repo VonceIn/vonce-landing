@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PillShapedButton from './PillShapedButton';
 import { createClient } from '@/utils/supabase/client';
 import { useRef } from 'react';
@@ -93,13 +93,16 @@ export const Content = () => {
                             Get Early Access
                         </span>
 
-                        <form className='flex h-max gap-4 font-inter items-center'>
+                        <form 
+                            className='flex h-max gap-4 font-inter items-center' 
+                            onSubmit={(e) => {
+                                        e.preventDefault();
+                                        const email = emailRef.current!.value.trim().toLowerCase();
+                                        handleEmailUpload(email);
+                            }}
+                        >
                             <input type='email' name='email' required placeholder='Email address' className='py-2 px-4 w-72 max-sm:w-55 border rounded-lg text-black placeholder:text-neutral-700 text-[18px] max-sm:text-[14px] outline-0 focus:outline-2 outline-offset-2 outline-secondary transition-[outline] duration-40 bg-primary' ref={emailRef} />
-                                <PillShapedButton text='Join Vonce' textSize={'18px'} textClassName={'font-inter'} className='px-4 py-2' type='submit' onClick={(e) => {
-                                    e.preventDefault();
-                                    const email = emailRef.current!.value.trim().toLowerCase();;
-                                    handleEmailUpload(email);
-                                }} />
+                                <PillShapedButton text='Join Vonce' textSize={'18px'} textClassName={'font-inter'} className='px-4 py-2' type='submit' />
                         </form>
                     </div>
                 </div>

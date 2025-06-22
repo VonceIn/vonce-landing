@@ -4,6 +4,7 @@ import "./globals.css";
 import { LenisProvider } from "@/components/LenisProvider";
 import { ViewTransitions } from 'next-view-transitions';
 import { Analytics } from "@vercel/analytics/next";
+import Head from "next/head";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
