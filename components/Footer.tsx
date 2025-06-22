@@ -23,6 +23,15 @@ const footerSections = [
 ] as const;
 
 const Footer = () => {
+    const handleEmailClick = () => {
+        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+            if (isMobile) {
+            window.location.href = 'mailto:ask@vonce.in';
+        } else {
+            window.open('https://mail.google.com/mail/?view=cm&fs=1&to=ask@vonce.in', '_blank');
+        }
+    };
+
     return (
         <div 
             className='flex-1 relative bg-secondary rounded-t-[90px] lg:h-56 min-h-50 max-h-max flex max-lg:flex-col justify-between items-center px-4 overflow-hidden pt-4'
@@ -47,13 +56,11 @@ const Footer = () => {
                     <span className='text-left w-full font-ubuntu font-[500] text-[20px] text-primary'>Connect</span>
                     <div className='flex gap-2 max-sm:w-full w-full'>
                         <img src='/images/mail_icon.png' className='w-8' />
-                        <a  href='https://mail.google.com/mail/?view=cm&fs=1&to=ask@vonce.in'
-                            target='_blank'
-                            rel='noopener noreferrer' 
+                        <span  onClick={handleEmailClick}
                             className='font-ubuntu font-[400] text-[16px] text-primary cursor-pointer relative footer-animated-underline'
                         >
                             ask@vonce.in
-                        </a>
+                        </span>
                     </div>
                     <div className='flex gap-4 w-full'> 
                         <a href="https://www.linkedin.com/company/vonceapp" target='_blank'>
