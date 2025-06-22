@@ -47,7 +47,13 @@ const Footer = () => {
                     <span className='text-left w-full font-ubuntu font-[500] text-[20px] text-primary'>Connect</span>
                     <div className='flex gap-2 max-sm:w-full w-full'>
                         <img src='/images/mail_icon.png' className='w-8' />
-                        <span className='font-ubuntu font-[400] text-[16px] text-primary cursor-pointer relative footer-animated-underline'>ask@vonce.in</span>
+                        <a  href='https://mail.google.com/mail/?view=cm&fs=1&to=ask@vonce.in'
+                            target='_blank'
+                            rel='noopener noreferrer' 
+                            className='font-ubuntu font-[400] text-[16px] text-primary cursor-pointer relative footer-animated-underline'
+                        >
+                            ask@vonce.in
+                        </a>
                     </div>
                     <div className='flex gap-4 w-full'> 
                         <a href="https://www.linkedin.com/company/vonceapp" target='_blank'>
